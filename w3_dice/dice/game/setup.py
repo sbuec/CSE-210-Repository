@@ -1,5 +1,5 @@
 from linecache import checkcache
-from game.dice import Dice
+from .dice import Dice
 
 
 #GameSetup class is used to set up a set of steps the game goes through
@@ -29,10 +29,10 @@ class GameSetup:
         while check_continue:
             checkRoll = input('Roll dice? [y/n]')
             
-            if checkRoll == 'n' or 'N':
+            if checkRoll == 'n':
                 self.play_game = False
                 check_continue = False
-            elif checkRoll == 'y' or 'Y':
+            elif checkRoll == 'y':
                 self.play_game = True
                 check_continue = False
             else:
@@ -44,10 +44,10 @@ class GameSetup:
         if not self.play_game:
             return
 
-        for i in range(len(self.roll)):
-            rolls = self.roll[i]
+        for i in range(len(self.rolls)):
+            rolls = self.rolls[i]
             rolls.roll()
-            self.total += self.score
+            self.total += rolls.points
 
     #Show rolled values and total score
     def rollScore(self):
@@ -59,6 +59,6 @@ class GameSetup:
             roll = self.rolls[i]
             values += f'{roll.value} '
 
-        print('Your rolls: {values}')
-        print('Your total score: {self.total}')
+        print('Your rolls: ', values)
+        print('Your total score: ', self.total)
         self.continue_game == (self.score > 0)
