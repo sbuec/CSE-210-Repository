@@ -8,8 +8,6 @@ def showGameboard(slotNum):
     print(slotNum[6] + '|' + slotNum[7] + '|' + slotNum[8])
     print('\n')
 
-    return
-
 def gameBoard(slotNum, current):
     goodInput = False
 
@@ -18,7 +16,6 @@ def gameBoard(slotNum, current):
         #Ask current player to enter a number
         print('Player ' + current + ', select an available slot: ')
         numSelect = input()        
-
 
         match numSelect:
             case '1':
@@ -97,14 +94,6 @@ def main():
 
     countRound = 0
 
-    """
-    Show game board:
-    1|2|3
-    -+-+-
-    4|5|6
-    -+-+-
-    7|8|9
-    """
     runGame = True
     while runGame == True:
         #Fill slot with 'X' or 'O' depending on which player selected it
